@@ -194,8 +194,8 @@
         <div class="row">
           <div class="col-md-6 mx-auto">
             <div><h1>Edit Products</h1>
+            <a href="<?= site_url('index.php/home/products'); ?>" class="btn btn-danger my-2">Back</a>
             </div>
-            <BR>
             <div class="card">
                 <div class="card-body">
                 <form method="post" action="<?php echo site_url('index.php/home/update_product');?>">
