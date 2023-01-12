@@ -44,7 +44,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <!-- <?php flash_alert(); ?>   -->
+          <?php flash_alert(); ?>  
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
         <!-- /.col -->
