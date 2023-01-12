@@ -155,7 +155,7 @@ $config['charset']					= 'UTF-8';
 | This config will be used in the Router Class inside kernel.
 |
 */
-$config['default_controller'] 		= 'logincontroller';
+$config['default_controller'] 		= 'Logincon';
 $config['default_method'] 			= 'index';
 
 /*
