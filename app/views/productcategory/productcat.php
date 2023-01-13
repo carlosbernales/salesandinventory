@@ -106,8 +106,8 @@
                 <li  class="active"><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
                 <li><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
                 <li><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
-                <li><a href="<?= site_url('index.php/salescon/index'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
-                <li><a href="<?= site_url('index.php/salescon/index1'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+                <li><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
+                <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
               </ul>
             </li>
             
@@ -119,7 +119,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Product Category
+            List of Product Category
           </h1>
           <div>
             <a href="<?= site_url('index.php/productcatcon/add_category'); ?>" class="btn btn-primary mt-5 mb-2">Add New Category</a>

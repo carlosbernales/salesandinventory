@@ -17,7 +17,9 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/skins/_all-skins.min.css">
+
     <link rel="stylesheet" href="<?= site_url(); ?>assets/plugins/select2/select2.min.css">
+    <script type="text/javascript" src="<?= site_url(); ?>assets/dist/js/jquery.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,6 +43,26 @@
     </style>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
+  <script>
+      $(document).ready(function(){
+        $("#price,#qty").keyup(function(){
+          var total=0;
+          var x = Number($("#price").val());
+          var y = Number($("#qty").val());
+          var total=x*y;
+          $("#total").val(total);
+        });
+      });
+      $(document).ready(function(){
+        $("#quan,#qty").keyup(function(){
+          var total=0;
+          var x = Number($("#quan").val());
+          var y = Number($("#qty").val());
+          var total=x-y;
+          $("#totalquan").val(total);
+        });
+      });
+    </script>
     <div class="wrapper">
 
       <header class="main-header">
@@ -122,7 +144,7 @@
             </div>
           </div>
           <!-- search form -->
-        
+          
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
@@ -137,24 +159,24 @@
                 <li><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
                 <li><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
                 <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+              </ul>
             </li>
       </aside>
 
 
 
-  
       <!-- Main content -->
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Edit Product
+            Add Sales
           </h1>
           <ol class="breadcrumb">
             <li><a><i class="fa fa-dashboard"></i> Menu</a></li>
             <li><a>Products</a></li>
-            <li class="active">Edit Product</li>
+            <li class="active"> Add Sales</li>
           </ol>
         </section>
         <section class="content">
@@ -163,22 +185,33 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title"><?= $data['cat_name']; ?></h4>
+                    <h4 class="modal-title"><?= $data['product']; ?></h4>
+                    <?= $data['cat_name']; ?></h5>
                   </div>
-                  <form method="post" action="<?php echo site_url('index.php/productcon/update_product');?>">
+                  <form method="post" action="<?php echo site_url('index.php/salescon/add_sales');?>">
                   <div class="modal-body">
                      <div class="form-group">
-                     <label>Product Name:</label>
                     <input type="hidden" name="id" value="<?= $data['id']; ?>">
-                    <input type="text" name="product" class="form-control" value="<?= $data['product']; ?>">
+                    <input type="hidden" name="caty_name" class="form-control" value="<?= $data['cat_name']; ?>" >
+                    <input type="hidden" name="s_product" class="form-control" value="<?= $data['product']; ?>" >
+                    <input type="hidden" name="s_price" id="price" class="form-control" value="<?= $data['price']; ?>" >
+                    <label>Quantity:</label>
+                    <input type="number"  name = "s_quantity" id="qty" class="form-control" >
                   </div>
                   <div class="form-group">
-                    <label>Product Price (&#8369;):</label>
-                    <input type="text" name="price" class="form-control" value="<?= $data['price']; ?>">
-                    </div>
+                    <label>Product Price:</label>
+                    <input type="number" name="s_price" id="price" class="form-control" value="<?= $data['price']; ?>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label>Total Price:</label>
+                    <input type="text" name="s_total" id= "total"  class="form-control" readonly >
+                    <input type="hidden" id="quan" class="form-control" value="<?= $data['quantity']; ?>" readonly >
+                    <input type="hidden" name="quantity" id="totalquan" class="form-control" readonly>
+                  </div>
+                    
                   </div>
                   <div class="modal-footer">
-                    <a href="<?= site_url('index.php/productcon/product_up'); ?>" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</a>
+                    <a href="<?= site_url('index.php/salescon/addsales'); ?>" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
@@ -191,6 +224,7 @@
     </div>
 
 
+<!-- MAIN FOOTER -->
       <footer>
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
@@ -210,6 +244,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="<?= site_url(); ?>assets/dist/js/demo.js"></script>
     <script src="<?= site_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
+   
     <script>
       $(function () {
         //Initialize Select2 Elements

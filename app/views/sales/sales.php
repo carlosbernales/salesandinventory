@@ -106,8 +106,8 @@
                 <li><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
                 <li><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
                 <li><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
-                <li class="active"><a href="<?= site_url('index.php/salescon/index'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
-                <li><a href="<?= site_url('index.php/salescon/index1'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+                <li class="active"><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
+                <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
               </ul>
             </li>
             
@@ -119,14 +119,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Sales
+            List of Sales
           </h1>
           <div>
-            <a href="<?= site_url(); ?>" class="btn btn-primary mt-5 mb-2">Add New Sales</a>
+            <a href="<?= site_url('index.php/salescon/addsales'); ?>" class="btn btn-primary mt-5 mb-2">Add New Sales</a>
             </div>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Menu</a></li>
-            <li><a href="#">Sales</a></li>
+            <li><a href="#">List of Sales</a></li>
           </ol>
         </section>
         <!-- Main content -->
@@ -139,13 +139,23 @@
                       <tr>
                         <th>Category</th>
                         <th>Product</th>
+                        <th>Product Price</th>
                         <th>Quantity</th>
                         <th>Total Price</th>
-                        <th>Action</th>
+                        <th>Date</th>
                       </tr>
                     </thead>
                     <tbody>
-             
+                    <?php foreach ($data as $datum): ?>
+                      <tr>
+                          <td><?=$datum['caty_name'];?></td>
+                          <td><?=$datum['s_product'];?></td>
+                          <td><?=$datum['s_price'];?></td>
+                          <td><?=$datum['s_quantity'];?></td>
+                          <td><?=$datum['s_total'];?></td>
+                          <td><?=$datum['s_created_at'];?></td>
+                      </tr>
+                  <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->

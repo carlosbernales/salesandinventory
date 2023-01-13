@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,6 +19,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/skins/_all-skins.min.css">
+   
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,7 +27,9 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+ 
     </head>
+   
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -35,7 +37,7 @@
         <!-- Logo -->
         <a class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>SI</b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Sales and Inventory</b></span>
         </a>
@@ -97,14 +99,14 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="active treeview">
+            <li class="treeview">
               <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Menu</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
               <li><a href="<?= site_url('index.php/logincon/dashboard'); ?>"><i class="fa fa-circle-o"></i> Dashboard</a></li>
-                <li><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
-                <li class="active"><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
+                <li class="active"><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
+                <li><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
                 <li><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
                 <li><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
                 <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
@@ -119,19 +121,16 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            List of Product
+            Add Sales
           </h1>
           <div>
-            <a href="<?= site_url('index.php/productcon/addproduct'); ?>" class="btn btn-primary mt-5 mb-2">Add New Product</a>
+            <a href="<?= site_url('index.php/salescon/retrievesales'); ?>" class="btn btn-danger mt-5 mb-2">Close</a>
             </div>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Menu</a></li>
-            <li><a href="#">Products</a></li>
+            <li><a href="#">Add Sales</a></li>
           </ol>
         </section>
-
-
-
         <!-- Main content -->
               <div class="box">
                <div class="box-header">
@@ -142,9 +141,9 @@
                       <tr>
                         <th>Category</th>
                         <th>Product</th>
-                        <th>Price (&#8369; )</th>
+                        <th>Price</th>
+                        <th>Stocks (pcs)</th>
                         <th>Action</th>
-                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -153,8 +152,8 @@
                           <td><?=$datum['cat_name'];?></td>
                           <td><?=$datum['product'];?></td>
                           <td><?=$datum['price'];?></td>
-                          <td><a href="<?=site_url('index.php/productcon/update/'.$datum['id'].'');?>" class="btn btn-info">Edit</td>
-                          <td><a href="<?=site_url('index.php/productcon/delete_product/'.$datum['id'].'');?>" class="btn btn-danger" onclick="return confirm('Do you want to delete?')">Delete</td>
+                          <td><?=$datum['quantity'];?></td>
+                          <td><a href="<?=site_url('index.php/salescon/addsalesdata/'.$datum['id'].'');?>" class="btn btn-info">Add Sales</td>
                       </tr>
                   <?php endforeach; ?>
                     </tbody>
@@ -165,10 +164,8 @@
           </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+     </div>
 
-
-
-      
       <footer>
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0

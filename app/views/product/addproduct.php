@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,7 +14,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/skins/_all-skins.min.css">
 
@@ -137,8 +136,8 @@
                 <li><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
                 <li class="active"><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
                 <li><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
-                <li><a href="<?= site_url('index.php/salescon/index'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
-                <li><a href="<?= site_url('index.php/salescon/index1'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+                <li><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
+                <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
               </ul>
             </li>
       </aside>
@@ -188,7 +187,6 @@
                       <input class="form-control" type="number" name="quantity"  required/>
                       </div>
                   </div>
-
                   <div class="modal-footer">
                     <a href="<?= site_url('index.php/productcon/product_up'); ?>" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</a>
                     <button type="submit" class="btn btn-primary">Submit</button>

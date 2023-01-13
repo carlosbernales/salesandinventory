@@ -10,7 +10,24 @@
     public function retrieve_stocks() {
 		return $this->db->table('product')->get_all();
     }
+    public function stock_up($id) {
+        return $this->db->table('product')
+                ->where('id', $id)
+                ->get();
+    }
+    public function up_stock($id, $quantity) {
 
+        $data = array(
+            'quantity' => $quantity,
+        );
+
+		$result = $this->db->table('product')
+                ->where(array('id' => $id))
+                ->update($data);
+                
+        if($result)
+        return true;
+	}
 }
         
 ?>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,6 +19,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/skins/_all-skins.min.css">
+   
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,7 +27,9 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+ 
     </head>
+   
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -106,8 +108,8 @@
                 <li><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
                 <li><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
                 <li class="active"><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
-                <li><a href="<?= site_url('index.php/salescon/index'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
-                <li><a href="<?= site_url('index.php/salescon/index1'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+                <li><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
+                <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
               </ul>
             </li>
             
@@ -119,7 +121,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Stocks
+            List of Stocks
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Menu</a></li>
@@ -146,7 +148,7 @@
                           <td><?=$datum['cat_name'];?></td>
                           <td><?=$datum['product'];?></td>
                           <td><?=$datum['quantity'];?></td>
-                          <td><a href="<?=site_url();?>" class="btn btn-info">Add</td>
+                          <td><a href="<?=site_url('index.php/stockscon/addstock/'.$datum['id'].'');?>" class="btn btn-info">Add</td>
                       </tr>
                   <?php endforeach; ?>
                     </tbody>
@@ -159,8 +161,6 @@
       </div><!-- /.content-wrapper -->
      </div>
 
-
-      
       <footer>
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
