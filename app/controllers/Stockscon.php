@@ -23,6 +23,7 @@ class Stockscon extends Controller {
 			if($this->form_validation->run()) {
 				if($this->Stocks_model->up_stock($this->io->post('id'),
 					$this->io->post('quantity')))
+					
 					redirect('index.php/stockscon/stock_up');
 			}
 		}

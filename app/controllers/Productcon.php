@@ -71,6 +71,5 @@ class Productcon extends Controller {
 		$data = $this->Productcat_model->retrieve_category();
 		$this->call->view('product/addproduct', $data);
 	} 
-
 }
 ?>

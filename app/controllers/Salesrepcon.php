@@ -8,7 +8,7 @@ class Salesrepcon extends Controller {
 	public function index() {
 
 		$this->call->view('salesreport/salesreport');
-
 	}
+	
 }
 ?>

@@ -137,26 +137,35 @@
                <div class="box-header">
                 </div><!-- /.box-header -->
                 <div class="box-body">
+                
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>Category</th>
                         <th>Product</th>
                         <th>Price (&#8369; )</th>
-                        <th>Action</th>
                         <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($data as $datum): ?>
-                      <tr>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php foreach ($data as $datum): ?>
+                        <tr>
                           <td><?=$datum['cat_name'];?></td>
                           <td><?=$datum['product'];?></td>
                           <td><?=$datum['price'];?></td>
-                          <td><a href="<?=site_url('index.php/productcon/update/'.$datum['id'].'');?>" class="btn btn-info">Edit</td>
-                          <td><a href="<?=site_url('index.php/productcon/delete_product/'.$datum['id'].'');?>" class="btn btn-danger" onclick="return confirm('Do you want to delete?')">Delete</td>
+                          <td>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-info">Action</button>
+                          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                        <li><a href="<?=site_url('index.php/productcon/update/'.$datum['id'].'');?>">Edit</a></li>
+                        <li><a href="<?=site_url('index.php/productcon/delete_product/'.$datum['id'].'');?>">Delete</a></li>
+                      </ul>
+                      </td>
                       </tr>
-                  <?php endforeach; ?>
+                     <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
@@ -165,6 +174,7 @@
           </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+    </aside>
 
 
 
