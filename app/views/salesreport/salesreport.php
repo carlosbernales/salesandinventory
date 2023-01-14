@@ -350,9 +350,8 @@
 
 
         
-          </div><!-- /.row (main row) -->
-      </div>
-      <footer>
+    </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
@@ -395,6 +394,5 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="<?= site_url(); ?>assets/dist/js/assets/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?= site_url(); ?>assets/dist/js/demo.js"></script>
   </body>
 </html>

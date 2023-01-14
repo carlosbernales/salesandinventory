@@ -169,7 +169,8 @@
 
 
       
-      <footer>
+      </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
@@ -190,7 +191,6 @@
     <!-- AdminLTE App -->
     <script src="<?= site_url(); ?>assets/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?= site_url(); ?>assets/dist/js/demo.js"></script>
     <!-- page script -->
     <script>
       $(function () {

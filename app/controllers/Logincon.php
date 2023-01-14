@@ -20,11 +20,13 @@ class Logincon extends Controller {
         if ($user=='admin' && $pass=='admin')   
         {  
             //declaring session  
-            $this->session->set_userdata(array('user'=>$user));  
+            $this->session->set_userdata(array('user'=>$user)); 
+            $_SESSION['status']="Welcome Back Admin";
             redirect('index.php/Logincon/dashboard');
         }  
         else{  
-			$this->session->set_flashdata(array('alert' => 'danger', 'message' => 'Wrong username or password.'));
+            $_SESSION['status']="Wrong Credentials";
+            $_SESSION['status_code']="error";
             redirect('index.php/Logincon/index');
         }  
     }  

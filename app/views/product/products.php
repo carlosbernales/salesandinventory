@@ -161,7 +161,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                         <li><a href="<?=site_url('index.php/productcon/update/'.$datum['id'].'');?>">Edit</a></li>
-                        <li><a href="<?=site_url('index.php/productcon/delete_product/'.$datum['id'].'');?>">Delete</a></li>
+                        <li><a href="<?=site_url('index.php/productcon/delete_product/'.$datum['id'].'');?>" onclick="return  confirm('Do you want to delete this record?')">Delete</a></li>
                       </ul>
                       </td>
                       </tr>
@@ -179,7 +179,8 @@
 
 
       
-      <footer>
+    </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
@@ -200,9 +201,10 @@
     <!-- AdminLTE App -->
     <script src="<?= site_url(); ?>assets/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?= site_url(); ?>assets/dist/js/demo.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- page script -->
     <script>
+      
       $(function () {
         $("#example1").DataTable();
         $('#example2').DataTable({
@@ -214,6 +216,16 @@
           "autoWidth": false
         });
       });
+      <?php if(isset($_SESSION['status'])){ ?>
+      type="text/javascript">
+        Swal.fire({
+              position: 'top-end',
+              icon: '<?php echo $_SESSION['status_code'];?>',
+              title: '<?php echo $_SESSION['status'];?>',
+              showConfirmButton: false,
+              timer: 1500
+            })
+      <?php unset($_SESSION["status"]);  }?>
     </script>
   </body>
 </html>

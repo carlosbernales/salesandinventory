@@ -15,21 +15,22 @@
                 ->where('id', $id)
                 ->get();
     }
-    public function insert_sales($caty_name, $s_product, $s_price, $s_quantity, $s_total, $id, $quantity){
+    public function insert_sales($caty_name, $s_product, $s_price, $s_quantity, $s_total,$s_created_at, $id, $quantity){
         $data = array(
-        'caty_name'=>$caty_name,
-        's_product'=>$s_product,
-        's_price'=>$s_price,
-        's_quantity'=>$s_quantity,
-        's_total'=>$s_total,
+            'caty_name'=>$caty_name,
+            's_product'=>$s_product,
+            's_price'=>$s_price,
+            's_quantity'=>$s_quantity,
+            's_total'=>$s_total,
+            's_created_at'=>$s_created_at,
         );
         $datas =array(
             'quantity' => $quantity,
-    );
+        );
         $result=$this->db->table('sales')->insert($data);
         $result = $this->db->table('product')
-                ->where(array('id' => $id))
-                ->update($datas);
+            ->where(array('id' => $id))
+            ->update($datas);
         if($result){
             return true;
         }

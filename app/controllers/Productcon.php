@@ -2,6 +2,7 @@
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class Productcon extends Controller {
+	
     public function __construct() {
 
 		parent::__construct();
@@ -24,6 +25,8 @@ class Productcon extends Controller {
 					$this->io->post('price'),
 					$this->io->post('quantity'),
 					$this->io->post('cat_name')))
+					$_SESSION['status']="Product Added";
+					$_SESSION['status_code']="success";
 					redirect('index.php/productcon/product_up');
 				} 
 				else {
@@ -37,6 +40,7 @@ class Productcon extends Controller {
         $data = $this->Product_model->retrieve_product();
 		$this->call->view('product/products', $data);
 	} 
+
 	public function update($id) {
 		
 		$data = $this->Product_model->getProduct($id);
@@ -54,14 +58,18 @@ class Productcon extends Controller {
 				if($this->Product_model->up_product($this->io->post('id'),
 					$this->io->post('product'),
 					$this->io->post('price')))
+					$_SESSION['status']="Edit Successful";
+					$_SESSION['status_code']="success";
 					redirect('index.php/productcon/product_up');
 			}
 		}
-		
 	}
+	
 	public function delete_product($id) {
 
-		if($this->Product_model->remove_product($id))
+		if($this->Product_model->remove_product($id) ==TRUE)
+				$_SESSION['status']="Deleted Successfully";
+				$_SESSION['status_code']="success";
 		
 			redirect('index.php/productcon/product_up');
 			exit;

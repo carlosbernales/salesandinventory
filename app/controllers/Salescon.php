@@ -28,15 +28,19 @@ class Salescon extends Controller {
 			  ->name('s_price')->required()
 			  ->name('s_quantity')->required()
 			  ->name('s_total')->required()
-			  ->name('quantity')->required();
+			  ->name('quantity')->required()
+			  ->name('s_created_at')->required();
 		  if($this->form_validation->run()) {
 			  if($this->Sales_model->insert_sales($this->io->post('caty_name'),
 					$this->io->post('s_product'),
 					$this->io->post('s_price'),
 					$this->io->post('s_quantity'),
 					$this->io->post('s_total'),
+					$this->io->post('s_created_at'),
 					$this->io->post('id'),
 					$this->io->post('quantity')))
+					$_SESSION['status']="New Sales Added";
+					$_SESSION['status_code']="success";
 
 				  redirect('index.php/salescon/addsales');
 			  } 

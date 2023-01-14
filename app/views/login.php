@@ -63,7 +63,18 @@
 <script src="<?= site_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="<?= site_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
-<script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script>
+      <?php if(isset($_SESSION['status'])){ ?>
+      type="text/javascript">
+       Swal.fire({
+          icon: '<?php echo $_SESSION['status_code'];?>',
+          title: '<?php echo $_SESSION['status'];?>',
+        })
+      <?php unset($_SESSION["status"]);  }?>
+
 </script>
 </body>
 </html>

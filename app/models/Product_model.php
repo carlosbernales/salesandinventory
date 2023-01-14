@@ -49,8 +49,6 @@
         return true;
 	}
  
-
-     // Query for getting data to be Edit or Update //
      public function getProduct($id) {
         return $this->db->table('product')
                 ->where('id', $id)

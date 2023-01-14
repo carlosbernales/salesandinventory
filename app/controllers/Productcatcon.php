@@ -15,15 +15,23 @@ class Productcatcon extends Controller {
     }
     public function addcategory()
 	  {
+		
 		if($this->form_validation->submitted())
+		
 		{
+			
 			$this->form_validation
 				->name('category')->required();
 			if($this->form_validation->run()) {
+				
 				if($this->Productcat_model->addCategory
-          ($this->io->post('category')))
-
+          			($this->io->post('category')))
+		  			
+		  			
+					  $_SESSION['status']="Category Added";
+					  $_SESSION['status_code']="success";
 					redirect('index.php/productcatcon/category_up');
+				
 				} 
 				else {
 					echo 'ERROR';

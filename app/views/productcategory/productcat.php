@@ -163,7 +163,8 @@
 
 
       
-      <footer>
+      </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
@@ -185,9 +186,18 @@
     <!-- AdminLTE App -->
     <script src="<?= site_url(); ?>assets/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?= site_url(); ?>assets/dist/js/demo.js"></script>
-    <!-- page script -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+      <?php if(isset($_SESSION['status'])){ ?>
+      type="text/javascript">
+        Swal.fire({
+              position: 'top-end',
+              icon: '<?php echo $_SESSION['status_code'];?>',
+              title: '<?php echo $_SESSION['status'];?>',
+              showConfirmButton: false,
+              timer: 1500
+            })
+      <?php unset($_SESSION["status"]);  }?>
       $(function () {
         $("#example1").DataTable();
         $('#example2').DataTable({

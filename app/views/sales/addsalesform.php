@@ -199,6 +199,10 @@
                     <input type="number"  name = "s_quantity" id="qty" class="form-control" >
                   </div>
                   <div class="form-group">
+                    <label>Date:</label>
+                    <input type="date" name="s_created_at"  class="form-control" required>
+                  </div>
+                  <div class="form-group">
                     <label>Product Price:</label>
                     <input type="number" name="s_price" id="price" class="form-control" value="<?= $data['price']; ?>" readonly>
                   </div>
@@ -208,6 +212,7 @@
                     <input type="hidden" id="quan" class="form-control" value="<?= $data['quantity']; ?>" readonly >
                     <input type="hidden" name="quantity" id="totalquan" class="form-control" readonly>
                   </div>
+                 
                     
                   </div>
                   <div class="modal-footer">
@@ -225,7 +230,8 @@
 
 
 <!-- MAIN FOOTER -->
-      <footer>
+</div><!-- /.content-wrapper -->
+      <footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
@@ -242,7 +248,6 @@
     <!-- AdminLTE App -->
     <script src="<?= site_url(); ?>assets/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?= site_url(); ?>assets/dist/js/demo.js"></script>
     <script src="<?= site_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
    
     <script>

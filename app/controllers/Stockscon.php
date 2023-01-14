@@ -23,6 +23,8 @@ class Stockscon extends Controller {
 			if($this->form_validation->run()) {
 				if($this->Stocks_model->up_stock($this->io->post('id'),
 					$this->io->post('quantity')))
+					$_SESSION['status']="New Stocks Added";
+					$_SESSION['status_code']="success";
 					
 					redirect('index.php/stockscon/stock_up');
 			}
