@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Products</title>
+    <title>Sales and Inventory</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -207,7 +207,7 @@
         console.log(self.data('title'));
         Swal.fire({
             title: 'Are you sure?',
-            text: "This is cannot be undone",
+            text: "This cannot be undone",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
