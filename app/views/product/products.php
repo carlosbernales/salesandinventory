@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,7 +34,7 @@
         <!-- Logo -->
         <a class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>SI</b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Sales and Inventory</b></span>
         </a>
@@ -106,8 +105,8 @@
                 <li><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
                 <li class="active"><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
                 <li><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
-                <li><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
-                <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+                <li><a href="<?= site_url('index.php/salescon/sales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
+                <li><a href="<?= site_url('index.php/salesrepcon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
               </ul>
             </li>
             
@@ -137,13 +136,12 @@
                <div class="box-header">
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>Category</th>
                         <th>Product</th>
-                        <th>Price (&#8369; )</th>
+                        <th>Price (&#8369;)</th>
                         <th></th>
                         </tr>
                       </thead>
@@ -161,7 +159,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                         <li><a href="<?=site_url('index.php/productcon/update/'.$datum['id'].'');?>">Edit</a></li>
-                        <li><a href="<?=site_url('index.php/productcon/delete_product/'.$datum['id'].'');?>" onclick="return  confirm('Do you want to delete this record?')">Delete</a></li>
+                        <li><a class='delete' href="<?=site_url('index.php/productcon/delete_product/'.$datum['id'].'');?>">Delete</a></li>
                       </ul>
                       </td>
                       </tr>
@@ -177,15 +175,13 @@
     </aside>
 
 
-
-      
-    </div><!-- /.content-wrapper -->
-      <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-      </footer>
+</div><!-- /.content-wrapper -->
+    <div class="pull-right hidden-xs">
+      <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
+      <strong></a></strong> All rights reserved.
+    </div>
+    <strong></a>BSIT</strong> 3F2
+  </footer>
 
     <!-- jQuery 2.1.4 -->
     <script src="<?= site_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -204,6 +200,26 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- page script -->
     <script>
+
+    $('.delete').on('click',function (e) {
+        e.preventDefault();
+        var self = $(this);
+        console.log(self.data('title'));
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "This is cannot be undone",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire
+              location.href = self.attr('href');
+            }
+        })
+    })
       
       $(function () {
         $("#example1").DataTable();

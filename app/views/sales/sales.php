@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sales and Inventory</title>
+    <title>Products</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -20,6 +19,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/skins/_all-skins.min.css">
+   
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,7 +27,9 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+ 
     </head>
+   
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -106,8 +108,8 @@
                 <li><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
                 <li><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
                 <li><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
-                <li class="active"><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
-                <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+                <li class="active"><a href="<?= site_url('index.php/salescon/sales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
+                <li><a href="<?= site_url('index.php/salesrepcon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
               </ul>
             </li>
             
@@ -119,14 +121,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            List of Sales
+            Add Sales
           </h1>
-          <div>
-            <a href="<?= site_url('index.php/salescon/addsales'); ?>" class="btn btn-primary mt-5 mb-2">Add New Sales</a>
-            </div>
+        
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Menu</a></li>
-            <li><a href="#">List of Sales</a></li>
+            <li><a href="#">Add Sales</a></li>
           </ol>
         </section>
         <!-- Main content -->
@@ -139,23 +139,21 @@
                       <tr>
                         <th>Category</th>
                         <th>Product</th>
-                        <th>Product Price</th>
-                        <th>Quantity</th>
-                        <th>Total Price</th>
-                        <th>Date</th>
+                        <th>Price(&#8369;)</th>
+                        <th>Stocks (pcs)</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($data as $datum): ?>
                       <tr>
-                          <td><?=$datum['caty_name'];?></td>
-                          <td><?=$datum['s_product'];?></td>
-                          <td><?=$datum['s_price'];?></td>
-                          <td><?=$datum['s_quantity'];?></td>
-                          <td><?=$datum['s_total'];?></td>
-                          <td><?=$datum['s_created_at'];?></td>
+                          <td><?=$datum['cat_name'];?></td>
+                          <td><?=$datum['product'];?></td>
+                          <td><?=$datum['price'];?></td>
+                          <td><?=$datum['quantity'];?></td>
+                          <td><a href="<?=site_url('index.php/salescon/addsales/'.$datum['id'].'');?>" class="btn btn-info">Add Sales</td>
                       </tr>
-                  <?php endforeach; ?>
+                       <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
@@ -164,18 +162,15 @@
           </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
-    </div>
+     </div>
 
-
-
-      
-      </div><!-- /.content-wrapper -->
-      <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-      </footer>
+</div><!-- /.content-wrapper -->
+  <div class="pull-right hidden-xs">
+    <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
+    <strong></a></strong> All rights reserved.
+  </div>
+  <strong></a>BSIT</strong> 3F2
+</footer>
 
     <!-- jQuery 2.1.4 -->
     <script src="<?= site_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -191,8 +186,20 @@
     <!-- AdminLTE App -->
     <script src="<?= site_url(); ?>assets/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <!-- page script -->
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <script>
+      <?php if(isset($_SESSION['status'])){ ?>
+      type="text/javascript">
+        Swal.fire({
+              position: 'top-end',
+              icon: '<?php echo $_SESSION['status_code'];?>',
+              title: '<?php echo $_SESSION['status'];?>',
+              showConfirmButton: false,
+              timer: 1500
+            })
+      <?php unset($_SESSION["status"]);  }?>
       $(function () {
         $("#example1").DataTable();
         $('#example2').DataTable({

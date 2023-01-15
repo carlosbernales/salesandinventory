@@ -135,8 +135,8 @@
                 <li><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
                 <li class="active"><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
                 <li><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
-                <li><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
-                <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+                <li><a href="<?= site_url('index.php/salescon/sales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
+                <li><a href="<?= site_url('index.php/salesrepcon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
             </li>
       </aside>
 
@@ -178,7 +178,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <a href="<?= site_url('index.php/productcon/product_up'); ?>" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</a>
+                    <a href="<?= site_url('index.php/productcon/product_up'); ?>" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
@@ -192,11 +192,11 @@
 
 
     </div><!-- /.content-wrapper -->
-      <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+          <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
+          <strong></a></strong> All rights reserved.
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+        <strong></a>BSIT</strong> 3F2
       </footer>
 
 

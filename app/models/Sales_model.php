@@ -35,9 +35,7 @@
             return true;
         }
     }
-    public function retrieve_sales() {
-		return $this->db->table('sales')->get_all();
-    }
+   
 
 }
         

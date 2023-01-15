@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="<?= site_url(); ?>assets/plugins/datatables/dataTables.bootstrap.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/skins/_all-skins.min.css">
-   
+
+    <link rel="stylesheet" href="<?= site_url(); ?>assets/plugins/select2/select2.min.css">
+    <script type="text/javascript" src="<?= site_url(); ?>assets/dist/js/jquery.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,17 +27,49 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
- 
-    </head>
-   
+    <style>
+      .example-modal .modal {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        right: auto;
+        left: auto;
+        display: block;
+        z-index: 1;
+      }
+      .example-modal .modal {
+        background: transparent !important;
+      }
+    </style>
+  </head>
   <body class="hold-transition skin-blue sidebar-mini">
+  <script>
+      $(document).ready(function(){
+        $("#price,#qty").keyup(function(){
+          var total=0;
+          var x = Number($("#price").val());
+          var y = Number($("#qty").val());
+          var total=x*y;
+          $("#total").val(total);
+        });
+      });
+      $(document).ready(function(){
+        $("#quan,#qty").keyup(function(){
+          var total=0;
+          var x = Number($("#quan").val());
+          var y = Number($("#qty").val());
+          var total=x-y;
+          $("#totalquan").val(total);
+        });
+      });
+    </script>
     <div class="wrapper">
 
       <header class="main-header">
         <!-- Logo -->
         <a class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>SI</b></span>
+          <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Sales and Inventory</b></span>
         </a>
@@ -46,10 +78,15 @@
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-
+              <!-- Messages: style can be found in dropdown.less-->
+              
+              <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="<?= site_url(); ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
@@ -60,15 +97,27 @@
                   <li class="user-header">
                     <img src="<?= site_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     <p>
-                      Alexander Pierce - Web Developer
+                    Administrator - Web Developer
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
-                  
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div>
                     <div class="pull-right">
                       <a href="#" class="btn btn-default btn-flat">Sign out</a>
                     </div>
@@ -95,7 +144,7 @@
             </div>
           </div>
           <!-- search form -->
-        
+          
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
@@ -105,17 +154,18 @@
               </a>
               <ul class="treeview-menu">
               <li><a href="<?= site_url('index.php/logincon/dashboard'); ?>"><i class="fa fa-circle-o"></i> Dashboard</a></li>
-                <li class="active"><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
-                <li><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
+                <li><a href="<?= site_url('index.php/productcatcon/category_up'); ?>"><i class="fa fa-circle-o"></i> Product Category</a></li>
+                <li class="active"><a href="<?= site_url('index.php/productcon/product_up'); ?>"><i class="fa fa-circle-o"></i> Products</a></li>
                 <li><a href="<?= site_url('index.php/stockscon/stock_up'); ?>"><i class="fa fa-circle-o"></i> Stocks</a></li>
-                <li><a href="<?= site_url('index.php/salescon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
-                <li><a href="<?= site_url('index.php/salesrepcon/index'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+                <li><a href="<?= site_url('index.php/salescon/sales'); ?>"><i class="fa fa-circle-o"></i> Sales</a></li>
+                <li><a href="<?= site_url('index.php/salesrepcon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
               </ul>
             </li>
-            
-        <!-- /.sidebar -->
       </aside>
-      
+
+
+
+      <!-- Main content -->
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -123,95 +173,143 @@
           <h1>
             Add Sales
           </h1>
-        
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Menu</a></li>
-            <li><a href="#">Add Sales</a></li>
+            <li><a><i class="fa fa-dashboard"></i> Menu</a></li>
+            <li><a>Products</a></li>
+            <li class="active"> Add Sales</li>
           </ol>
-          <div>
-             <a href="<?= site_url('index.php/salescon/retrievesales'); ?>" class="btn btn-danger mt-5 mb-2">Close</a>
-          </div>
         </section>
-        <!-- Main content -->
-              <div class="box">
-               <div class="box-header">
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>Category</th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Stocks (pcs)</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($data as $datum): ?>
-                      <tr>
-                          <td><?=$datum['cat_name'];?></td>
-                          <td><?=$datum['product'];?></td>
-                          <td><?=$datum['price'];?></td>
-                          <td><?=$datum['quantity'];?></td>
-                          <td><a href="<?=site_url('index.php/salescon/addsalesdata/'.$datum['id'].'');?>" class="btn btn-info">Add Sales</td>
-                      </tr>
-                       <?php endforeach; ?>
-                    </tbody>
-                  </table>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </section><!-- /.content -->
+        <section class="content">
+          <div class="example-modal">
+            <div class="modal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title"><?= $data['product']; ?></h4>
+                    <?= $data['cat_name']; ?>
+                  </div>
+                  <form method="post" action="<?php echo site_url('index.php/salescon/add_sales');?>">
+                  <div class="modal-body">
+                     <div class="form-group">
+                    <input type="hidden" name="id" value="<?= $data['id']; ?>">
+                    <input type="hidden" name="caty_name" class="form-control" value="<?= $data['cat_name']; ?>" >
+                    <input type="hidden" name="s_product" class="form-control" value="<?= $data['product']; ?>" >
+                    <input type="hidden" name="s_price" id="price" class="form-control" value="<?= $data['price']; ?>" >
+                    <div class="form-group">
+                    <label>Remaining Stock:</label> <?= $data['quantity']; ?> pcs
+                  </div>
+                    <label>Quantity:</label>
+                    <input type="number"  name = "s_quantity" id="qty" class="form-control" required >
+                  </div>
+                  <div class="form-group">
+                    <label>Date:</label>
+                    <input type="date" name="s_created_at"  class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Product Price(&#8369;):</label>
+                    <input type="number" name="s_price" id="price" class="form-control" value="<?= $data['price']; ?>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label>Total Price(&#8369;):</label>
+                    <input type="text" name="s_total" id= "total"  class="form-control" readonly >
+                    <input type="hidden" id="quan" class="form-control" value="<?= $data['quantity']; ?>" readonly >
+                    <input type="hidden" name="quantity" id="totalquan" class="form-control" readonly>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="<?= site_url('index.php/salescon/sales'); ?>" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+          </div><!-- /.example-modal -->
+        </section>
       </div><!-- /.content-wrapper -->
-     </div>
+    </div>
 
-     </div><!-- /.content-wrapper -->
-      <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-      </footer>
+
+<!-- MAIN FOOTER -->
+</div><!-- /.content-wrapper -->
+  <div class="pull-right hidden-xs">
+    <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
+    <strong></a></strong> All rights reserved.
+  </div>
+  <strong></a>BSIT</strong> 3F2
+</footer>
+
 
     <!-- jQuery 2.1.4 -->
     <script src="<?= site_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="<?= site_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- DataTables -->
-    <script src="<?= site_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?= site_url(); ?>assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <!-- SlimScroll -->
-    <script src="<?= site_url(); ?>assets/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
     <script src="<?= site_url(); ?>assets/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?= site_url(); ?>assets/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+    <script src="<?= site_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
+   
     <script>
-      <?php if(isset($_SESSION['status'])){ ?>
-      type="text/javascript">
-        Swal.fire({
-              position: 'top-end',
-              icon: '<?php echo $_SESSION['status_code'];?>',
-              title: '<?php echo $_SESSION['status'];?>',
-              showConfirmButton: false,
-              timer: 1500
-            })
-      <?php unset($_SESSION["status"]);  }?>
       $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        //Datemask2 mm/dd/yyyy
+        $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+        //Money Euro
+        $("[data-mask]").inputmask();
+
+        //Date range picker
+        $('#reservation').daterangepicker();
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+            {
+              ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+              },
+              startDate: moment().subtract(29, 'days'),
+              endDate: moment()
+            },
+        function (start, end) {
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+        );
+
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+          checkboxClass: 'icheckbox_minimal-blue',
+          radioClass: 'iradio_minimal-blue'
+        });
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+          checkboxClass: 'icheckbox_minimal-red',
+          radioClass: 'iradio_minimal-red'
+        });
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+          checkboxClass: 'icheckbox_flat-green',
+          radioClass: 'iradio_flat-green'
+        });
+
+        //Colorpicker
+        $(".my-colorpicker1").colorpicker();
+        //color picker with addon
+        $(".my-colorpicker2").colorpicker();
+
+        //Timepicker
+        $(".timepicker").timepicker({
+          showInputs: false
         });
       });
     </script>

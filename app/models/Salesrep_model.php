@@ -6,6 +6,9 @@
         parent::constructor();
         $this->function->database();
     }
+    public function retrieve_sales() {
+		return $this->db->table('sales')->get_all();
+    }
 }
         
 ?>

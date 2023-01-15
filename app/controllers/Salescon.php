@@ -6,16 +6,16 @@ class Salescon extends Controller {
 		parent::__construct();
 		$this->call->model('Sales_model');
 	}
-	public function addsales() {
+	public function sales() {
 
 		$data = $this->Sales_model->retrieve_data();
-		$this->call->view('sales/addsales',$data);
+		$this->call->view('sales/sales',$data);
 	}
 
-	public function addsalesdata($id) {
+	public function addsales($id) {
 
 		$data = $this->Sales_model->addsales($id);
-		$this->call->view('sales/addsalesform', $data);
+		$this->call->view('sales/addsales', $data);
 	}
 
 	public function add_sales()
@@ -42,7 +42,7 @@ class Salescon extends Controller {
 					$_SESSION['status']="New Sales Added";
 					$_SESSION['status_code']="success";
 
-				  redirect('index.php/salescon/addsales');
+				  redirect('index.php/salescon/sales');
 			  } 
 			  else {
 				  echo 'ERROR';
@@ -50,11 +50,7 @@ class Salescon extends Controller {
 	  }
 	  $this->call->view('productat/addcategory');
   	}
-	public function retrievesales() {
 
-        $data = $this->Sales_model->retrieve_sales();
-		$this->call->view('sales/sales', $data);
-	} 
 	
 }
 ?>
