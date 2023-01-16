@@ -139,8 +139,8 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Category</th>
-                        <th>Product</th>
+                        <th>Category Name</th>
+                        <th>Product Name</th>
                         <th>Price (&#8369;)</th>
                         <th></th>
                         </tr>
@@ -151,17 +151,17 @@
                           <td><?=$datum['cat_name'];?></td>
                           <td><?=$datum['product'];?></td>
                           <td><?=$datum['price'];?></td>
-                          <td>
-                        <div class="btn-group">
+                          <th style="width:10%">
+                          <div class="btn-group center">
                           <button type="button" class="btn btn-info">Action</button>
-                          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
+                          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                         <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
                         <li><a href="<?=site_url('index.php/productcon/update/'.$datum['id'].'');?>">Edit</a></li>
                         <li><a class='delete' href="<?=site_url('index.php/productcon/delete_product/'.$datum['id'].'');?>">Delete</a></li>
                       </ul>
-                      </td>
+                      </th>
                       </tr>
                      <?php endforeach; ?>
                     </tbody>
@@ -175,12 +175,12 @@
     </aside>
 
 
-</div><!-- /.content-wrapper -->
+  </div><!-- /.content-wrapper -->
     <div class="pull-right hidden-xs">
-      <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
+      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
       <strong></a></strong> All rights reserved.
     </div>
-    <strong></a>BSIT</strong> 3F2
+    <strong></a>Sales and Inventory</strong> 
   </footer>
 
     <!-- jQuery 2.1.4 -->

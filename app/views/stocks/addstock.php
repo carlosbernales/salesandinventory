@@ -179,7 +179,7 @@
                     <h4 class="modal-title"><?= $data['product']; ?></h4>
                     <?= $data['cat_name']; ?></h5>
                   </div>
-                  <form method="post" action="<?php echo site_url('index.php/stockscon/update_stock');?>">
+                  <form method="post" action="<?php echo site_url('index.php/stockscon/add_stock');?>">
                   <div class="modal-body">
                      <div class="form-group">
                     <input type="hidden" name="id" value="<?= $data['id']; ?>">
@@ -208,12 +208,12 @@
 
 <!-- MAIN FOOTER -->
 </div><!-- /.content-wrapper -->
-  <div class="pull-right hidden-xs">
-    <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
+    <div class="pull-right hidden-xs">
+      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
       <strong></a></strong> All rights reserved.
     </div>
-  <strong></a>BSIT</strong> 3F2
-</footer>
+    <strong></a>Sales and Inventory</strong> 
+  </footer>
 
 
     <!-- jQuery 2.1.4 -->

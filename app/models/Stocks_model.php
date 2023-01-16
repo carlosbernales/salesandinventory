@@ -6,6 +6,16 @@
         parent::constructor();
         $this->function->database();
     }
+    public function up_stock($id, $quantity) {
+
+        $data = array('quantity' => $quantity,);
+		$result = $this->db->table('product')
+                ->where(array('id' => $id))
+                ->update($data);
+                
+        if($result)
+        return true;
+	}
         // Query for Retrieve of Data //
     public function retrieve_stocks() {
 		return $this->db->table('product')->get_all();
@@ -15,7 +25,7 @@
                 ->where('id', $id)
                 ->get();
     }
-    public function up_stock($id, $quantity) {
+    public function reduce_stock($id, $quantity) {
 
         $data = array(
             'quantity' => $quantity,

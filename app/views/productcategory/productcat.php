@@ -163,13 +163,13 @@
 
 
       
-</div><!-- /.content-wrapper -->
-  <div class="pull-right hidden-xs">
-    <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
-    <strong></a></strong> All rights reserved.
-  </div>
-  <strong></a>BSIT</strong> 3F2
-</footer>
+  </div><!-- /.content-wrapper -->
+    <div class="pull-right hidden-xs">
+      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
+      <strong></a></strong> All rights reserved.
+    </div>
+    <strong></a>Sales and Inventory</strong> 
+  </footer>
 
       <!-- Control Sidebar -->
     <!-- jQuery 2.1.4 -->

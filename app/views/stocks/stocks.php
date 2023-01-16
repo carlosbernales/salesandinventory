@@ -133,10 +133,10 @@
                <div class="box-header">
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Category</th>
+                        <th>Category Name</th>
                         <th>Product Name</th>
                         <th>Stocks (pcs)</th>
                         <th>Action</th>
@@ -145,10 +145,20 @@
                     <tbody>
                     <?php foreach ($data as $datum): ?>
                       <tr>
-                          <td><?=$datum['cat_name'];?></td>
-                          <td><?=$datum['product'];?></td>
-                          <td><?=$datum['quantity'];?></td>
-                          <td><a href="<?=site_url('index.php/stockscon/addstock/'.$datum['id'].'');?>" class="btn btn-info">Add</td>
+                          <th style="font-weight:normal"><?=$datum['cat_name'];?></th>
+                          <th style="font-weight:normal"><?=$datum['product'];?></td>
+                          <td style="font-weight:bold"><?=$datum['quantity'];?></td>
+                          <th style="width:10%">
+                          <div class="btn-group center">
+                          <button type="button" class="btn btn-info">Action</button>
+                          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                         <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                        <li><a href="<?=site_url('index.php/stockscon/addstock/'.$datum['id'].'');?>">Add</a></li>
+                        <li><a href="<?=site_url('index.php/stockscon/reducestock/'.$datum['id'].'');?>">Reduce</a></li>
+                      </ul>
+                      </th>
                       </tr>
                   <?php endforeach; ?>
                     </tbody>
@@ -161,13 +171,13 @@
       </div><!-- /.content-wrapper -->
      </div>
 
-</div><!-- /.content-wrapper -->
-  <div class="pull-right hidden-xs">
-    <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
+  </div><!-- /.content-wrapper -->
+    <div class="pull-right hidden-xs">
+      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
       <strong></a></strong> All rights reserved.
     </div>
-  <strong></a>BSIT</strong> 3F2
-</footer>
+    <strong></a>Sales and Inventory</strong> 
+  </footer>
 
     <!-- jQuery 2.1.4 -->
     <script src="<?= site_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -185,8 +195,26 @@
     <!-- AdminLTE for demo purposes -->
     <!-- page script -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/api/sum().js"></script>
     
     <script>
+      $(document).ready(function(){
+        var tabla = $("#example").DataTable({
+               "createdRow":function(row,data,index){                   
+                   if(data[2] <= 15){
+                    $('td', row).css({
+                           'color':'red',
+                       });
+                   }
+               }, 
+                "drawCallback":function(){
+                      var api = this.api();
+                      $(api.column(2).footer()).html(
+                          'Total: &#8369;'+api.column(2, {page:'current'}).data().sum()
+                      )
+                }
+        });
+    });
       <?php if(isset($_SESSION['status'])){ ?>
       type="text/javascript">
         Swal.fire({

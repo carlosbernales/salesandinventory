@@ -163,6 +163,7 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
+                  <div class="box-header with-border">
                     <h4 class="modal-title"><?= $data['cat_name']; ?></h4>
                   </div>
                   <form method="post" action="<?php echo site_url('index.php/productcon/update_product');?>">
@@ -191,13 +192,13 @@
     </div>
 
 
-    </div><!-- /.content-wrapper -->
-        <div class="pull-right hidden-xs">
-          <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
-          <strong></a></strong> All rights reserved.
-        </div>
-        <strong></a>BSIT</strong> 3F2
-      </footer>
+  </div><!-- /.content-wrapper -->
+    <div class="pull-right hidden-xs">
+      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
+      <strong></a></strong> All rights reserved.
+    </div>
+    <strong></a>Sales and Inventory</strong> 
+  </footer>
 
 
     <!-- jQuery 2.1.4 -->

@@ -110,8 +110,6 @@
                 <li class="active"><a href="<?= site_url('index.php/salesrepcon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
               </ul>
             </li>
-            
-        <!-- /.sidebar -->
       </aside>
       
       <!-- Content Wrapper. Contains page content -->
@@ -134,11 +132,11 @@
                   <table id="example" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Category</th>
+                        <th>Category Name</th>
                         <th>Product Name</th>
                         <th>Product Price(&#8369;)</th>
-                        <th>Quantity(pcs)</th>
-                        <th>Date Created</th>
+                        <th>Quantity Sold(pcs)</th>
+                        <th>Date</th>
                         <th>Total Price(&#8369;)</th>
                       </tr>
                     </thead>
@@ -149,7 +147,7 @@
                           <td><?=$datum['s_price'];?></td>
                           <td><?=$datum['s_quantity'];?></td>
                           <td><?=$datum['s_created_at'];?></td>
-                          <td><?=$datum['s_total'];?></td>
+                          <td style="font-weight:bold"><?=$datum['s_total'];?></td>
                       </tr>
                     <?php endforeach; ?>
                     <tbody></tbody>
@@ -160,6 +158,9 @@
                       </tr>
                     </tfoot>
                   </table>
+                  <div class="text-center">
+                    <button onclick="window.print();" class="btn btn-primary fa fa-print" > Print</button>
+                  </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
@@ -173,10 +174,10 @@
       
 </div><!-- /.content-wrapper -->
     <div class="pull-right hidden-xs">
-      <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
+      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
       <strong></a></strong> All rights reserved.
     </div>
-    <strong></a>BSIT</strong> 3F2
+    <strong></a>Sales and Inventory</strong> 
   </footer>
 
     <!-- jQuery 2.1.4 -->
@@ -195,13 +196,14 @@
     <script src="https://cdn.datatables.net/plug-ins/1.10.20/api/sum().js"></script>
     <!-- page script -->
     <script>
-          $(document).ready(function(){
+      
+      $(document).ready(function(){
         var tabla = $("#example").DataTable({
                "createdRow":function(row,data,index){                   
                    if(data[5] >= 1000){
                     $('td', row).css({
                            'background-color':'#FF5833',
-                           'color':'white',
+                           'color':'black',
                            'border-style':'solid',
                            'border-color':'white' 
                        });

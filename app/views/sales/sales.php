@@ -134,10 +134,10 @@
                <div class="box-header">
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Category</th>
+                        <th style="align: center">Category</th>
                         <th>Product</th>
                         <th>Price(&#8369;)</th>
                         <th>Stocks (pcs)</th>
@@ -147,11 +147,11 @@
                     <tbody>
                     <?php foreach ($data as $datum): ?>
                       <tr>
-                          <td><?=$datum['cat_name'];?></td>
-                          <td><?=$datum['product'];?></td>
-                          <td><?=$datum['price'];?></td>
-                          <td><?=$datum['quantity'];?></td>
-                          <td><a href="<?=site_url('index.php/salescon/addsales/'.$datum['id'].'');?>" class="btn btn-info">Add Sales</td>
+                          <th style="font-weight:normal"><?=$datum['cat_name'];?></th>
+                          <th style="font-weight:normal"><?=$datum['product'];?></th>
+                          <th style="font-weight:normal"><?=$datum['price'];?></th>
+                          <td style="font-weight:bold"><?=$datum['quantity'];?></td>
+                          <th style="width:9%"><a href="<?=site_url('index.php/salescon/addsales/'.$datum['id'].'');?>" class="btn btn-info">Add Sales</th>
                       </tr>
                        <?php endforeach; ?>
                     </tbody>
@@ -164,13 +164,13 @@
       </div><!-- /.content-wrapper -->
      </div>
 
-</div><!-- /.content-wrapper -->
-  <div class="pull-right hidden-xs">
-    <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
-    <strong></a></strong> All rights reserved.
-  </div>
-  <strong></a>BSIT</strong> 3F2
-</footer>
+  </div><!-- /.content-wrapper -->
+    <div class="pull-right hidden-xs">
+      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
+      <strong></a></strong> All rights reserved.
+    </div>
+    <strong></a>Sales and Inventory</strong> 
+  </footer>
 
     <!-- jQuery 2.1.4 -->
     <script src="<?= site_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -190,6 +190,23 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <script>
+      $(document).ready(function(){
+        var tabla = $("#example").DataTable({
+               "createdRow":function(row,data,index){                   
+                   if(data[3] <= 15){
+                    $('td', row).css({
+                           'color':'red',
+                       });
+                   }
+               }, 
+                "drawCallback":function(){
+                      var api = this.api();
+                      $(api.column(3).footer()).html(
+                          'Total: &#8369;'+api.column(3, {page:'current'}).data().sum()
+                      )
+                }
+        });
+    });
       <?php if(isset($_SESSION['status'])){ ?>
       type="text/javascript">
         Swal.fire({

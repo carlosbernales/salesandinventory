@@ -150,7 +150,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Add Product
+            Product
           </h1>
           <ol class="breadcrumb">
             <li><a><i class="fa fa-dashboard"></i> Menu</a></li>
@@ -158,22 +158,26 @@
             <li class="active"> Add Product</li>
           </ol>
         </section>
+        
         <section class="content">
           <div class="example-modal">
             <div class="modal">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                  </div>
+                    <div class="box-header with-border">
+                    <h3 class="box-title">Add Product</h3>
+                    </div>
                   <form method="post" action="<?php echo site_url('index.php/productcon/add_product');?>">
-                  <div class="modal-body">
+                    <div class="modal-body">
                      <div class="form-group">
                      <label>Category</label>
-                    <select class="form-control select2" name="cat_name" multiple="multiple" data-placeholder=" Select" style="width: 100%;"required/>
+                    <select class="form-control select2" multiple="" data-placeholder="Select a State" name="cat_name"  style="width: 100%;"required/>
                     <?php foreach($data as $rows): ?>
                       <option value="<?= $rows['category_name'] ?>"><?= $rows['category_name'] ?> </option>
                                     <?php endforeach; ?>
                     </select>
+                    </div>
                   <div class="form-group">
                     <label>Product Name:</label>
                       <input  class="form-control" type="text" name="product" required/>
@@ -203,11 +207,11 @@
 
 <!-- MAIN FOOTER -->
 </div><!-- /.content-wrapper -->
-   <div class="pull-right hidden-xs">
-      <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
-        <strong></a></strong> All rights reserved.
-      </div>
-    <strong></a>BSIT</strong> 3F2
+    <div class="pull-right hidden-xs">
+      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
+      <strong></a></strong> All rights reserved.
+    </div>
+    <strong></a>Sales and Inventory</strong> 
   </footer>
 
 
@@ -222,6 +226,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="<?= site_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
       <?php if(isset($_SESSION['status'])){ ?>
       type="text/javascript">

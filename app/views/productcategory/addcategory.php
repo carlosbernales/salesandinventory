@@ -148,7 +148,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Add Category
+            Category
           </h1>
           <ol class="breadcrumb">
             <li><a><i class="fa fa-dashboard"></i> Menu</a></li>
@@ -163,6 +163,8 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Add Category</h3>
                   </div>
                   <form method="post" action="<?php echo site_url('index.php/productcatcon/addcategory');?>">
                   <div class="modal-body">
@@ -186,13 +188,13 @@
 
 
       <!-- THIS IS FOOTER -->
-</div><!-- /.content-wrapper -->
-  <div class="pull-right hidden-xs">
-    <b>Copyright &copy; 2022-2023 <a href=""> Sales and Inventory</b>
-    <strong></a></strong> All rights reserved.
-  </div>
-  <strong></a>BSIT</strong> 3F2
-</footer>
+  </div><!-- /.content-wrapper -->
+    <div class="pull-right hidden-xs">
+      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
+      <strong></a></strong> All rights reserved.
+    </div>
+    <strong></a>Sales and Inventory</strong> 
+  </footer>
 
     <!-- jQuery 2.1.4 -->
     <script src="<?= site_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>

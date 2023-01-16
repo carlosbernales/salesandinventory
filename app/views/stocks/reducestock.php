@@ -45,21 +45,12 @@
   <body class="hold-transition skin-blue sidebar-mini">
   <script>
       $(document).ready(function(){
-        $("#price,#qty").keyup(function(){
+        $("#stocks,#reducestock").keyup(function(){
           var total=0;
-          var x = Number($("#price").val());
-          var y = Number($("#qty").val());
-          var total=x*y;
-          $("#total").val(total);
-        });
-      });
-      $(document).ready(function(){
-        $("#quan,#qty").keyup(function(){
-          var total=0;
-          var x = Number($("#quan").val());
-          var y = Number($("#qty").val());
+          var x = Number($("#stocks").val());
+          var y = Number($("#reducestock").val());
           var total=x-y;
-          $("#totalquan").val(total);
+          $("#total").val(total);
         });
       });
     </script>
@@ -171,12 +162,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Add Sales
+            Reduce Stocks
           </h1>
           <ol class="breadcrumb">
             <li><a><i class="fa fa-dashboard"></i> Menu</a></li>
             <li><a>Products</a></li>
-            <li class="active"> Add Sales</li>
+            <li class="active"> Reduce Stocks</li>
           </ol>
         </section>
         <section class="content">
@@ -185,40 +176,24 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                  <div class="box-header with-border">
                     <h4 class="modal-title"><?= $data['product']; ?></h4>
-                    <?= $data['cat_name']; ?>
+                    <?= $data['cat_name']; ?></h5>
                   </div>
-                  <form method="post" action="<?php echo site_url('index.php/salescon/add_sales');?>">
+                  <form method="post" action="<?php echo site_url('index.php/stockscon/reducestock_up');?>">
                   <div class="modal-body">
                      <div class="form-group">
                     <input type="hidden" name="id" value="<?= $data['id']; ?>">
-                    <input type="hidden" name="caty_name" class="form-control" value="<?= $data['cat_name']; ?>" >
-                    <input type="hidden" name="s_product" class="form-control" value="<?= $data['product']; ?>" >
-                    <input type="hidden" name="s_price" id="price" class="form-control" value="<?= $data['price']; ?>" >
-                    <div class="form-group">
-                    <label>Remaining Stock:</label> <?= $data['quantity']; ?> pcs
-                  </div>
-                    <label>Quantity:</label>
-                    <input type="number"  name = "s_quantity" id="qty" class="form-control" required >
-                  </div>
+                    <label>New Stock</label>
+                    <input type="number" id="reducestock" class="form-control" required>
+                    </div>
                   <div class="form-group">
-                    <label>Date:</label>
-                    <input type="date" name="s_created_at"  class="form-control" required>
-                  </div>
-                  <div class="form-group">
-                    <label>Product Price(&#8369;):</label>
-                    <input type="number" name="s_price" id="price" class="form-control" value="<?= $data['price']; ?>" readonly>
-                  </div>
-                  <div class="form-group">
-                    <label>Total Price(&#8369;):</label>
-                    <input type="text" name="s_total" id= "total"  class="form-control" readonly >
-                    <input type="hidden" id="quan" class="form-control" value="<?= $data['quantity']; ?>" readonly >
-                    <input type="hidden" name="quantity" id="totalquan" class="form-control" readonly>
-                  </div>
+                  <label>Current Stock</label>
+                    <input type="number" id="stocks" class="form-control" value="<?= $data['quantity']; ?>" readonly >
+                    <input type="hidden"  id= "total" name="quantity" class="form-control" >
+                    </div>
                   </div>
                   <div class="modal-footer">
-                    <a href="<?= site_url('index.php/salescon/sales'); ?>" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</a>
+                    <a href="<?= site_url('index.php/stockscon/stock_up'); ?>" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
