@@ -111,8 +111,6 @@
               </ul>
             </li>
       </aside>
-      
-      <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -124,6 +122,10 @@
             <li><a href="#">List of Sales</a></li>
           </ol>
         </section>
+
+
+
+        
         <!-- Main content -->
               <div class="box">
                <div class="box-header">
@@ -197,25 +199,25 @@
     <!-- page script -->
     <script>
       
-      $(document).ready(function(){
-        var tabla = $("#example").DataTable({
-               "createdRow":function(row,data,index){                   
-                   if(data[5] >= 1000){
-                    $('td', row).css({
-                           'background-color':'#FF5833',
-                           'color':'black',
-                           'border-style':'solid',
-                           'border-color':'white' 
-                       });
-                   }
-               }, 
-                "drawCallback":function(){
-                      var api = this.api();
-                      $(api.column(5).footer()).html(
-                          'Total: &#8369;'+api.column(5, {page:'current'}).data().sum()
-                      )
-                }
-        });
+    $(document).ready(function(){
+      var tabla = $("#example").DataTable({
+        "createdRow":function(row,data,index){                   
+            if(data[5] >= 1000){
+            $('td', row).css({
+                    'background-color':'#90EE90',
+                    'color':'black',
+                    'border-style':'solid',
+                    'border-color':'white' 
+                });
+            }
+        }, 
+        "drawCallback":function(){
+              var api = this.api();
+              $(api.column(5).footer()).html(
+                  'Total: &#8369;'+api.column(5, {page:'current'}).data().sum()
+              )
+        }
+      });
     });
       $(function () {
         $("#example1").DataTable();

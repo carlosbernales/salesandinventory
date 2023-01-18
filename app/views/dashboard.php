@@ -190,7 +190,7 @@
               <!-- small box -->
               <div class="small-box bg-maroon">
                 <div class="inner">
-                  <h3>P <?php echo $total_earning['total_earning'] ?></h3>
+                  <h3>&#8369; <?php echo $total_earning['total_earning'] ?></h3>
                   <p>Earnings</p>
                 </div>
                 <div class="icon">
