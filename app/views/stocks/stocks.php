@@ -139,7 +139,7 @@
                         <th>Category Name</th>
                         <th>Product Name</th>
                         <th>Stocks (pcs)</th>
-                        <th>Action</th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
