@@ -174,12 +174,12 @@
 
 
       
-</div><!-- /.content-wrapper -->
-    <div class="pull-right hidden-xs">
+ </div><!-- /.content-wrapper -->
+    <div class="pull-right hidden-xs" style="padding: 8px;">
       <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
       <strong></a></strong> All rights reserved.
     </div>
-    <strong></a>Sales and Inventory</strong> 
+    <h4 style="font-size: 14px;"><b>&nbsp;&nbsp;Mgel's Sales and Inventory</b></h4>
   </footer>
 
     <!-- jQuery 2.1.4 -->
