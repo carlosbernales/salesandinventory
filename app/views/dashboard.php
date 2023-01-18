@@ -191,7 +191,7 @@
               <div class="small-box bg-maroon">
                 <div class="inner">
                   <h3>&#8369; <?php echo $total_earning['total_earning'] ?></h3>
-                  <p>Earnings</p>
+                  <p>Total Earnings</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-cash"></i>
