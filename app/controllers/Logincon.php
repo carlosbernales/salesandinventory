@@ -11,7 +11,12 @@ class Logincon extends Controller {
 	}
     public function dashboard()
     {
-        $this->call->view('dashboard');
+        $data['category_name']=$this->Product_model->count_cat();
+        $data['product']=$this->Product_model->count_prod();
+        $data['caty_name']=$this->Product_model->count_sales();
+        $data['total_earning']=$this->Product_model->count_earning();
+        
+        $this->call->view('dashboard', $data);
     }
     public function login()
     {	
@@ -30,5 +35,11 @@ class Logincon extends Controller {
             redirect('index.php/Logincon/index');
         }  
     }  
+
+    public function logout(){
+        $this->session->sess_regenerate_destroy();
+        $this->call->view('login');
+        
+    }
 }
 ?>

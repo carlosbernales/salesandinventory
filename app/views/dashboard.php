@@ -81,7 +81,7 @@
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="<?php echo site_url('index.php/Logincon/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -140,8 +140,8 @@
           <h1>
             Dashboard
           </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Menu</a></li>
+          <ol class="breadcrumb">dashboard
+            <li><a href="#"><i class="fa fa-"></i> Menu</a></li>
             <li class="active">Dashboard</li>
           </ol>
         </section>
@@ -154,7 +154,7 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>150</h3>
+                 <h3><?php echo $category_name['category_name']?></h3>
                   <p>Categories</p>
                 </div>
                 <div class="icon">
@@ -166,7 +166,7 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px"></sup></h3>
+                  <h3><?php echo $product['product'] ?><sup style="font-size: 20px"></sup></h3>
                   <p>Products</p>
                 </div>
                 <div class="icon">
@@ -178,7 +178,7 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3><?php echo $caty_name['caty_name'] ?></h3>
                   <p>Product Sales</p>
                 </div>
                 <div class="icon">
@@ -190,7 +190,7 @@
               <!-- small box -->
               <div class="small-box bg-maroon">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>P <?php echo $total_earning['total_earning'] ?></h3>
                   <p>Earnings</p>
                 </div>
                 <div class="icon">

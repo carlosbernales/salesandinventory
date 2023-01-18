@@ -183,7 +183,7 @@
                   <div class="modal-body">
                      <div class="form-group">
                     <input type="hidden" name="id" value="<?= $data['id']; ?>">
-                    <label>Quantity</label>
+                    <label>New Stock</label>
                     <input type="number" id="reducestock" class="form-control" required>
                     </div>
                   <div class="form-group">

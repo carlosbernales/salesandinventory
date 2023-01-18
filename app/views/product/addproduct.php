@@ -171,8 +171,8 @@
                   <form method="post" action="<?php echo site_url('index.php/productcon/add_product');?>">
                     <div class="modal-body">
                      <div class="form-group">
-                     <label>Category Name</label>
-                    <select class="form-control select2" multiple="" data-placeholder="Select" name="cat_name"  style="width: 100%;"required/>
+                     <label>Category</label>
+                    <select class="form-control select2" multiple="" data-placeholder="Select a State" name="cat_name"  style="width: 100%;"required/>
                     <?php foreach($data as $rows): ?>
                       <option value="<?= $rows['category_name'] ?>"><?= $rows['category_name'] ?> </option>
                                     <?php endforeach; ?>
