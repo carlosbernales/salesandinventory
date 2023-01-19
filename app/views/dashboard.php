@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sales and Inventory</title>
+    <title>AdminLTE 2 | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -40,9 +39,10 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
+
       <header class="main-header">
         <!-- Logo -->
-        <a  class="logo">
+        <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>SI</b></span>
           <!-- logo for regular state and mobile devices -->
@@ -57,17 +57,16 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
-        
+             
 
               <!-- Tasks: style can be found in dropdown.less -->
-              
+ 
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="<?= site_url(); ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                   <span class="hidden-xs">Administrator</span>
                 </a>
-                
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
@@ -78,8 +77,6 @@
                     </p>
                   </li>
                   <!-- Menu Body -->
-              
-                  <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-right">
                       <a href="<?php echo site_url('index.php/Logincon/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
@@ -88,6 +85,9 @@
                 </ul>
               </li>
               <!-- Control Sidebar Toggle Button -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -107,7 +107,14 @@
             </div>
           </div>
           <!-- search form -->
-      
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
@@ -124,13 +131,9 @@
                 <li><a href="<?= site_url('index.php/salesrepcon/retrievesales'); ?>"><i class="fa fa-circle-o"></i> Sales Report</a></li>
               </ul>
             </li>
-            
-            
-            
-            
-            
-              
-              
+      
+
+        </section>
         <!-- /.sidebar -->
       </aside>
 
@@ -138,10 +141,10 @@
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>
+        <h1>
             Dashboard
           </h1>
-          <ol class="breadcrumb">dashboard
+          <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-"></i> Menu</a></li>
             <li class="active">Dashboard</li>
           </ol>
@@ -200,22 +203,10 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
-          <!-- Main row -->
-          
-       
-              
-
-
-             
-
             </section><!-- right col -->
           </div><!-- /.row (main row) -->
+
         </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-
-
-
-
   </div><!-- /.content-wrapper -->
     <div class="pull-right hidden-xs" style="padding: 8px;">
       <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
@@ -223,9 +214,23 @@
     </div>
     <h4 style="font-size: 14px;"><b>&nbsp;&nbsp;Mgel's Sales and Inventory</b></h4>
   </footer>
-      <!-- Control Sidebar -->
 
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- Home tab content -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+ 
+            </ul><!-- /.control-sidebar-menu -->
+          </div><!-- /.tab-pane -->
+          <!-- Stats tab content -->
     <!-- jQuery 2.1.4 -->
+
     <script src="<?= site_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -259,9 +264,9 @@
     <!-- AdminLTE App -->
     <script src="<?= site_url(); ?>assets/dist/js/app.min.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="<?= site_url(); ?>assets/dist/js/assets/pages/dashboard.js"></script>
+    <script src="<?= site_url(); ?>assets/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
-
+    <script src="<?= site_url(); ?>assets/dist/js/demo.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <script>
