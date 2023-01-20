@@ -17,7 +17,6 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/skins/_all-skins.min.css">
-
     <link rel="stylesheet" href="<?= site_url(); ?>assets/plugins/select2/select2.min.css">
     <script type="text/javascript" src="<?= site_url(); ?>assets/dist/js/jquery.min.js"></script>
 
@@ -27,6 +26,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
     <style>
       .example-modal .modal {
         position: relative;
@@ -44,7 +44,7 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
   <script>
-      $(document).ready(function(){
+   $(document).ready(function(){
         $("#price,#qty").keyup(function(){
           var total=0;
           var x = Number($("#price").val());
@@ -67,7 +67,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a class="logo">
+        <a  class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
@@ -97,27 +97,12 @@
                   <li class="user-header">
                     <img src="<?= site_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     <p>
-                    Administrator - Web Developer
-                      <small>Member since Nov. 2012</small>
+                    Mgel's Store
                     </p>
                   </li>
                   <!-- Menu Body -->
-                  <li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
-                    </div>
                     <div class="pull-right">
                       <a href="#" class="btn btn-default btn-flat">Sign out</a>
                     </div>
@@ -140,7 +125,7 @@
             </div>
             <div class="pull-left info">
               <p>Administrator</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              <a><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
           <!-- search form -->
@@ -231,15 +216,28 @@
     </div>
 
 
-<!-- MAIN FOOTER -->
+      <!-- THIS IS FOOTER -->
 </div><!-- /.content-wrapper -->
-    <div class="pull-right hidden-xs" style="padding: 8px;">
-      <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
-      <strong></a></strong> All rights reserved.
-    </div>
-    <h4 style="font-size: 14px;"><b>&nbsp;&nbsp;Mgel's Sales and Inventory</b></h4>
-  </footer>
+  <div class="pull-right hidden-xs" style="padding: 8px;">
+    <b>Copyright &copy; 2022-2023 <a>BSIT 3F2 </b>
+    <strong></a></strong> All rights reserved.
+  </div>
+  <h4 style="font-size: 14px;"><b>&nbsp;&nbsp;Mgel's Sales and Inventory</b></h4>
+</footer>
 
+       <!-- Control Sidebar -->
+       <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- Home tab content -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+ 
+            </ul><!-- /.control-sidebar-menu -->
+          </div><!-- /.tab-pane -->
 
     <!-- jQuery 2.1.4 -->
     <script src="<?= site_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -250,8 +248,9 @@
     <!-- AdminLTE App -->
     <script src="<?= site_url(); ?>assets/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
+    <script src="<?= site_url(); ?>assets/dist/js/demo.js"></script>
     <script src="<?= site_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
-   
+    
     <script>
       $(function () {
         //Initialize Select2 Elements

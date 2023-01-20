@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Modals</title>
+    <title>Sales and Inventory</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -75,8 +75,7 @@
                   <li class="user-header">
                     <img src="<?= site_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     <p>
-                    Administrator - Web Developer
-                      <small>Member since Nov. 2012</small>
+                    Mgel's Store
                     </p>
                   </li>
                   <!-- Menu Body -->
@@ -104,7 +103,7 @@
             </div>
             <div class="pull-left info">
               <p>Administrator</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              <a><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
           <!-- search form -->
