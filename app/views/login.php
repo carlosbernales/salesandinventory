@@ -30,11 +30,11 @@
 
     <form method="post" action="<?php echo site_url('index.php/Logincon/login') ?>" >
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="user" id="user" placeholder="Username" autocomplete="off" required/>
+        <input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" />
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" autocomplete="off" required/>
+        <input type="password" class="form-control" name="password" id="pass" placeholder="Password" autocomplete="off" />
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -44,7 +44,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <?php flash_alert(); ?>  
+          <?php flash_alert(); ?>
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
         <!-- /.col -->
