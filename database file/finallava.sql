@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 14, 2023 at 03:09 PM
+-- Generation Time: Jan 22, 2023 at 06:13 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `category_name` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
@@ -43,7 +43,10 @@ INSERT INTO `category` (`id`, `category_name`, `created_at`) VALUES
 (9, 'Alcoholic Drinks', '2023-01-12 10:35:40'),
 (8, 'Candy', '2023-01-12 10:35:19'),
 (7, 'Softdrinks', '2023-01-12 10:35:09'),
-(10, 'Cigarette', '2023-01-12 12:07:17');
+(10, 'Cigarette', '2023-01-12 12:07:17'),
+(44, 'Meat', '2023-01-18 10:12:03'),
+(40, 'Soap', '2023-01-15 09:57:39'),
+(39, 'Silver Swan', '2023-01-15 00:28:46');
 
 -- --------------------------------------------------------
 
@@ -59,15 +62,22 @@ CREATE TABLE IF NOT EXISTS `product` (
   `quantity` varchar(255) NOT NULL,
   `cat_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `product`, `price`, `quantity`, `cat_name`) VALUES
-(39, 'Mentos', '1', '1914', 'Candy'),
-(40, 'Gin 1L', '155', '250', 'Alcoholic Drinks');
+(44, 'Sprite', '18', '15', 'Softdrinks'),
+(43, 'Coke', '15', '20', 'Softdrinks'),
+(64, 'Red Horse 500ml', '60', '95', 'Alcoholic Drinks'),
+(65, 'Safeguard', '12', '4', 'Soap'),
+(61, 'Gin 1L', '155', '15', 'Alcoholic Drinks'),
+(62, 'Gin 750ml', '120', '13', 'Alcoholic Drinks'),
+(63, 'Red Horse 1L', '120', '200', 'Alcoholic Drinks'),
+(48, 'Toyo', '14', '245', 'Silver Swan'),
+(49, 'Suka', '15', '245', 'Silver Swan');
 
 -- --------------------------------------------------------
 
@@ -85,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `sales` (
   `s_total` varchar(255) NOT NULL,
   `s_created_at` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sales`
@@ -95,7 +105,31 @@ INSERT INTO `sales` (`id`, `caty_name`, `s_product`, `s_price`, `s_quantity`, `s
 (25, 'Alcoholic Drinks', 'Gin 1L', '155', '20', '3100', '2023-01-14'),
 (24, 'Alcoholic Drinks', 'Gin 1L', '150', '100', '15000', '2023-01-14'),
 (22, 'Alcoholic Drinks', 'Red Horse 1L', '120', '4', '480', '2023-01-14'),
-(23, 'Alcoholic Drinks', 'Red Horse 1L', '120', '4', '480', '2023-01-14');
+(23, 'Alcoholic Drinks', 'Red Horse 1L', '120', '4', '480', '2023-01-14'),
+(26, 'Candy', 'Mentos', '1', '200', '200', '2023-01-12'),
+(27, 'Candy', 'Mentos', '1', '14', '14', '2023-01-13'),
+(28, 'Alcoholic Drinks', 'Gin 1L', '155', '5', '775', '2023-01-15'),
+(29, 'Alcoholic Drinks', 'Red Horse 500ml', '60', '60', '3600', '2023-01-15'),
+(30, 'Softdrinks', 'Sprite', '18', '6', '108', '2023-01-15'),
+(31, 'Alcoholic Drinks', 'Gin 1L', '155', '5', '775', '2023-01-15'),
+(32, 'Silver Swan', 'Suka', '15', '70', '1050', '2023-01-15'),
+(33, 'Softdrinks', 'Sprite', '18', '4', '72', '2023-01-15'),
+(34, 'Softdrinks', 'Coke', '15', '5', '75', '2023-01-13'),
+(36, 'Silver Swan', 'Toyo', '15', '50', '750', '2023-01-15'),
+(37, 'Silver Swan', 'Toyo', '15', '50', '750', '2023-01-15'),
+(38, 'Silver Swan', 'Toyo', '15', '2', '30', '2023-01-15'),
+(39, 'Softdrinks', 'Sprite', '18', '95', '1710', '2023-01-11'),
+(40, 'Softdrinks', 'Sprite', '18', '50', '900', '2023-01-11'),
+(41, 'Alcoholic Drinks', 'Red Horse 1L', '120', '300', '36000', '2023-01-15'),
+(42, 'Alcoholic Drinks', 'Red Horse 500ml', '65', '16', '1040', '2023-01-16'),
+(43, 'Alcoholic Drinks', 'Red Horse 500ml', '65', '35', '2275', '2023-01-17'),
+(44, 'Alcoholic Drinks', 'Red Horse 500ml', '65', '25', '1625', '2023-01-17'),
+(45, 'Alcoholic Drinks', 'Red Horse 500ml', '65', '5', '325', '2023-01-18'),
+(46, 'Alcoholic Drinks', 'Red Horse 1L', '120', '10', '1200', '2023-01-18'),
+(47, 'Alcoholic Drinks', 'Red Horse 500ml', '60', '20', '1200', '2023-01-19'),
+(48, 'Alcoholic Drinks', 'Red Horse 500ml', '60', '5', '300', '2023-01-20'),
+(49, 'Alcoholic Drinks', 'Red Horse 1L', '120', '20', '2400', '2023-01-20'),
+(50, 'Alcoholic Drinks', 'Red Horse 1L', '120', '50', '6000', '2023-01-21');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

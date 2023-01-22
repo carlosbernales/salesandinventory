@@ -37,7 +37,7 @@ class Logincon extends Controller {
     }  
 
     public function logout(){
-        $this->session->sess_regenerate_destroy();
+        $this->session->sess_regenerate_destroy(array('user'=>$user));
         $this->call->view('login');
         
     }

@@ -19,6 +19,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= site_url(); ?>assets/dist/css/skins/_all-skins.min.css">
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,13 +55,13 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="<?= site_url(); ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <img src="<?= site_url(); ?>assets/dist/img/avatar5.png" class="user-image" alt="User Image">
                   <span class="hidden-xs">Administrator</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="<?= site_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="<?= site_url(); ?>assets/dist/img/avatar5.png" class="img-circle" alt="User Image">
                     <p>
                     Mgel's Store
                     </p>
@@ -88,7 +89,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="<?= site_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="<?= site_url(); ?>assets/dist/img/avatar5.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p>Administrator</p>
@@ -163,6 +164,7 @@
                   </table>
                   <div class="text-center">
                     <button onclick="window.print();" class="btn btn-primary fa fa-print" > Print</button>
+                    <button onclick="ExportToExcel('xlsx')" class="btn btn-success fa fa-file-excel-o" > Excel</button>
                   </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -213,9 +215,15 @@
     <script src="https://cdn.datatables.net/plug-ins/1.10.20/api/sum().js"></script>
     <!-- page script -->
     <script>
-      
+      function ExportToExcel(type, fn, dl) {
+       var elt = document.getElementById('example');
+       var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+       return dl ?
+         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+         XLSX.writeFile(wb, fn || ('Sales Report.' + (type || 'xlsx')));
+    }
     $(document).ready(function(){
-      var tabla = $("#example").DataTable({
+      var table = $("#example").DataTable({
         "createdRow":function(row,data,index){                   
             if(data[5] >= 1000){
             $('td', row).css({
