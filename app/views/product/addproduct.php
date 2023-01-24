@@ -161,7 +161,7 @@
                     <select class="form-control select2" multiple="" data-placeholder="Select" name="cat_name"  style="width: 100%;"required/>
                     <?php foreach($data as $rows): ?>
                       <option value="<?= $rows['category_name'] ?>"><?= $rows['category_name'] ?> </option>
-                                    <?php endforeach; ?>
+                        <?php endforeach; ?>
                     </select>
                     </div>
                   <div class="form-group">

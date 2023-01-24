@@ -18,7 +18,6 @@ class Stockscon extends Controller {
 					redirect('index.php/stockscon/stock_up');
 			}
 		}
-		
 	}
 	public function stock_up() {
         $data = $this->Stocks_model->retrieve_stocks();
@@ -44,7 +43,6 @@ class Stockscon extends Controller {
 					redirect('index.php/stockscon/stock_up');
 			}
 		}
-		
 	}
 	public function reducestock($id) {
 		$data = $this->Stocks_model->stock_up($id);

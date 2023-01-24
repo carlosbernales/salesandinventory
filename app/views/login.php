@@ -22,7 +22,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?= site_url(); ?>../../index2.html"><b>Sales and Inventory</b></a>
+    <a><b>Sales and Inventory</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -30,11 +30,11 @@
 
     <form method="post" action="<?php echo site_url('index.php/Logincon/login') ?>" >
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" />
+        <input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" required/>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" id="pass" placeholder="Password" autocomplete="off" />
+        <input type="password" class="form-control" name="password" id="pass" placeholder="Password" autocomplete="off" required/>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
