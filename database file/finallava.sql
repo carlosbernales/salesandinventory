@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 22, 2023 at 06:13 AM
+-- Generation Time: Jan 26, 2023 at 01:50 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(10) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `email`, `password`) VALUES
+(1, 'admin', 'admin@gmail.com', '$2y$04$3Lf4CSRl2buB6rdY1.32LuwRpRVD68mU4gA8s1Up9bSJVAm68E/oC');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category`
 --
 
@@ -33,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `category_name` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
@@ -44,9 +66,9 @@ INSERT INTO `category` (`id`, `category_name`, `created_at`) VALUES
 (8, 'Candy', '2023-01-12 10:35:19'),
 (7, 'Softdrinks', '2023-01-12 10:35:09'),
 (10, 'Cigarette', '2023-01-12 12:07:17'),
-(44, 'Meat', '2023-01-18 10:12:03'),
 (40, 'Soap', '2023-01-15 09:57:39'),
-(39, 'Silver Swan', '2023-01-15 00:28:46');
+(39, 'Silver Swan', '2023-01-15 00:28:46'),
+(46, 'Milk', '2023-01-25 16:01:21');
 
 -- --------------------------------------------------------
 
@@ -62,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `quantity` varchar(255) NOT NULL,
   `cat_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
@@ -71,13 +93,13 @@ CREATE TABLE IF NOT EXISTS `product` (
 INSERT INTO `product` (`id`, `product`, `price`, `quantity`, `cat_name`) VALUES
 (44, 'Sprite', '18', '15', 'Softdrinks'),
 (43, 'Coke', '15', '20', 'Softdrinks'),
-(64, 'Red Horse 500ml', '60', '95', 'Alcoholic Drinks'),
 (65, 'Safeguard', '12', '4', 'Soap'),
 (61, 'Gin 1L', '155', '15', 'Alcoholic Drinks'),
 (62, 'Gin 750ml', '120', '13', 'Alcoholic Drinks'),
 (63, 'Red Horse 1L', '120', '200', 'Alcoholic Drinks'),
-(48, 'Toyo', '14', '245', 'Silver Swan'),
-(49, 'Suka', '15', '245', 'Silver Swan');
+(48, 'Toyo', '14', '240', 'Silver Swan'),
+(49, 'Suka', '15', '245', 'Silver Swan'),
+(67, 'Bearbrand', '10', '45', 'Milk');
 
 -- --------------------------------------------------------
 
@@ -95,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `sales` (
   `s_total` varchar(255) NOT NULL,
   `s_created_at` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sales`
@@ -129,7 +151,9 @@ INSERT INTO `sales` (`id`, `caty_name`, `s_product`, `s_price`, `s_quantity`, `s
 (47, 'Alcoholic Drinks', 'Red Horse 500ml', '60', '20', '1200', '2023-01-19'),
 (48, 'Alcoholic Drinks', 'Red Horse 500ml', '60', '5', '300', '2023-01-20'),
 (49, 'Alcoholic Drinks', 'Red Horse 1L', '120', '20', '2400', '2023-01-20'),
-(50, 'Alcoholic Drinks', 'Red Horse 1L', '120', '50', '6000', '2023-01-21');
+(50, 'Alcoholic Drinks', 'Red Horse 1L', '120', '50', '6000', '2023-01-21'),
+(51, 'Silver Swan', 'Toyo', '14', '5', '70', '2023-01-25'),
+(52, 'Milk', 'Bearbrand', '10', '10', '100', '2023-01-25');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -225,7 +225,7 @@
     $(document).ready(function(){
       var table = $("#example").DataTable({
         "createdRow":function(row,data,index){                   
-            if(data[5] >= 1000){
+            if(data[5] >= 500){
             $('td', row).css({
                     'background-color':'#90EE90',
                     'color':'black',
